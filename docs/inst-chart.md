@@ -1,6 +1,6 @@
 ---
 slug: installation/chart/
-title: Install with Chart
+title: Install the Chart
 ---
 
 # Use Helm 3 to install Otomi.
