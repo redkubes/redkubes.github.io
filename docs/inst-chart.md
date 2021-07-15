@@ -79,12 +79,10 @@ helm show values otomi-repo/otomi
 | `alerts.msteams.highPrio` | `string` | The low prio web hook. | `nil` |
 | `alerts.msteams.lowPrio` | `string` | The high prio web hook. | `nil` |
 | `alerts.receivers.[]` | `string` |  | `nil` |
-| `alerts.receivers` | `array` | Notification receivers. | `nil` |
 | `alerts.repeatInterval` | `string` | How long to wait before sending a notification again if it has already been sent successfully for an alert. (Usually ~3h or more). | `3h` |
 | `alerts.slack.channel` | `string` | The Slack channel for non-critical notifications. | `dev-mon-otomi` |
 | `alerts.slack.channelCrit` | `string` | The Slack channel for critical notifications. | `dev-mon-otomi` |
 | `alerts.slack.url` | `string` | A Slack webhook URL. | `nil` |
-| `apps` | `object` | The list of otomi apps that are shown in the console. | `nil` |
 | `azure.storageType.fast` | `string` |  | `nil` |
 | `azure.storageType.standard` | `string` |  | `nil` |
 | `azure.appgw.isManaged` | `boolean` | Is this appgw installed as AKS addon? | `true` |
@@ -99,19 +97,15 @@ helm show values otomi-repo/otomi
 | `azure.monitor.logAnalyticsDefaultWorkspace` | `string` | An Azure LogAnalytics workspace. | `nil` |
 | `azure.monitor.subscriptionId` | `string` | An Azure subscription id. | `nil` |
 | `azure.monitor.tenantId` | `string` | An Azure tenant id. | `nil` |
-| `cloud.skipStorageClasses` | `array` | List of storage classes to exclude from deployment, to avoid k8s errors due to patching not allowed. This is a rather hacky way to circumvent the patching problem, going against idempotency, but we need it. Without it we can't add new storageclasses to a cluster upgrading otomi. | `nil` |
 | `cloud.skipStorageClasses.[]` | `string` |  | `nil` |
-| `charts.cert-manager._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.cert-manager.email` | `string` |  | `nil` |
 | `charts.cert-manager.stage` | `string` | The Let’s Encrypt environment that is used for issuing certificates. The 'production' environment issues trusted certificates but has narrow rate limits, whereas the 'staging' environment issues untrusted certificates but provides broader rate limits. Read more about rate limits: https://letsencrypt.org/docs/rate-limits/.  | `staging` |
-| `charts.cluster-overprovisioner._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.cluster-overprovisioner.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
 | `charts.cluster-overprovisioner.enabled` | `boolean` |  | `nil` |
 | `charts.cluster-overprovisioner.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
 | `charts.demo-tlspass.enabled` | `boolean` |  | `nil` |
 | `charts.demo-tlspass.tlsCert` | `string` |  | `nil` |
 | `charts.demo-tlspass.tlsKey` | `string` |  | `nil` |
-| `charts.drone._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.drone.adminIsMachine` | `boolean` |  | `nil` |
 | `charts.drone.adminUser` | `string` |  | `nil` |
 | `charts.drone.adminToken` | `string` |  | `nil` |
@@ -155,13 +149,9 @@ helm show values otomi-repo/otomi
 | `charts.drone.sourceControl.secret` | `string` |  | `nil` |
 | `charts.drone.sourceControl.username` | `string` |  | `nil` |
 | `charts.drone.trace` | `boolean` |  | `nil` |
-| `charts.external-dns._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.external-dns.domainFilters.[]` | `string` |  | `nil` |
-| `charts.external-dns.domainFilters` | `array` |  | `nil` |
 | `charts.external-dns.zoneIdFilters.[]` | `string` |  | `nil` |
-| `charts.gatekeeper-operator._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.gatekeeper-operator.enabled` | `boolean` |  | `nil` |
-| `charts.gatekeeper-operator.excludedNamespaces` | `array` |  | `nil` |
 | `charts.gatekeeper-operator.excludedNamespaces.[]` | `string` |  | `nil` |
 | `charts.gatekeeper-operator.emitAuditEvents` | `boolean` |  | `nil` |
 | `charts.gatekeeper-operator.emitAdmissionEvents` | `boolean` |  | `nil` |
@@ -171,12 +161,9 @@ helm show values otomi-repo/otomi
 | `charts.gatekeeper-operator.constraintViolationsLimit` | `integer` |  | `nil` |
 | `charts.gatekeeper-operator.auditInterval` | `integer` |  | `nil` |
 | `charts.gatekeeper-operator.replicas` | `integer` |  | `nil` |
-| `charts.gatekeeper-operator.dataSync` | `array` |  | `nil` |
-| `charts.gatekeeper-operator.dataSync.[]` | `object` |  | `nil` |
 | `charts.gitea.enabled` | `boolean` |  | `nil` |
 | `charts.gitea.adminPassword` | `string` |  | `nil` |
 | `charts.gitea.postgresqlPassword` | `string` | Once set and deployed it cannot be changed with manual intervention. | `nil` |
-| `charts.harbor._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.harbor.adminPassword` | `string` |  | `nil` |
 | `charts.harbor.core.secret` | `string` |  | `nil` |
 | `charts.harbor.core.xsrfKey` | `string` |  | `nil` |
@@ -255,7 +242,6 @@ helm show values otomi-repo/otomi
 | `charts.harbor.secretKey` | `string` |  | `nil` |
 | `charts.hello.enabled` | `boolean` | Hello world demo chart. When you turn this off you may also have to remove the ingress service. | `nil` |
 | `charts.httpbin.enabled` | `boolean` | The famous httpbin application. | `nil` |
-| `charts.ingress-azure._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.ingress-azure.enabled` | `boolean` |  | `nil` |
 | `charts.ingress-azure.appgw.name` | `string` | A name of the Application Gateway. | `nil` |
 | `charts.ingress-azure.appgw.resourceGroup` | `string` | A name of the Azure Resource Group in which Application Gateway was created. | `nil` |
@@ -264,7 +250,6 @@ helm show values otomi-repo/otomi
 | `charts.ingress-azure.appgw.subscriptionId` | `string` | The Azure Subscription ID in which Application Gateway resides. | `nil` |
 | `charts.ingress-azure.appgw.usePrivateIP` | `boolean` | Whether a private ip range or not. | `nil` |
 | `charts.ingress-azure.armAuth.secretJSON` | `string` | A service Principal secret JSON key (base64 encoded). | `nil` |
-| `charts.istio._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.istio.addonComponents.grafana.enabled` | `boolean` |  | `nil` |
 | `charts.istio.addonComponents.kiali.enabled` | `boolean` |  | `nil` |
 | `charts.istio.addonComponents.prometheus.enabled` | `boolean` |  | `nil` |
@@ -287,7 +272,6 @@ helm show values otomi-repo/otomi
 | `charts.istio.global.proxy.resources.requests.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
 | `charts.istio.global.proxy.resources.requests.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
 | `charts.istio.global.sds.enabled` | `boolean` |  | `nil` |
-| `charts.istio.meshConfig.defaultConfig` | `object` |  | `nil` |
 | `charts.istio.resources.egressgateway.limits.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
 | `charts.istio.resources.egressgateway.limits.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
 | `charts.istio.resources.egressgateway.requests.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
@@ -308,7 +292,6 @@ helm show values otomi-repo/otomi
 | `charts.istio.resources.pilot.limits.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
 | `charts.istio.resources.pilot.requests.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
 | `charts.istio.resources.pilot.requests.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
-| `charts.keycloak._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.keycloak.enabled` | `boolean` |  | `true` |
 | `charts.keycloak.idp.alias` | `string` |  | `nil` |
 | `charts.keycloak.idp.clientID` | `string` |  | `nil` |
@@ -328,24 +311,15 @@ helm show values otomi-repo/otomi
 | `charts.kubernetes-external-secrets.logLevel` | `string` |  | `info` |
 | `charts.kube-descheduler.enabled` | `boolean` |  | `true` |
 | `charts.kube-descheduler.schedule` | `string` |  | `*/30 * * * *` |
-| `charts.loki._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.loki.adminPassword` | `string` |  | `nil` |
 | `charts.loki.persistence.size` | `string` |  | `20Gi` |
 | `charts.loki.retention.duration` | `string` |  | `24h` |
 | `charts.loki.retention.period` | `string` | Should be a multiple of 24h. See https://grafana.com/docs/loki/latest/operations/storage/boltdb-shipper/. | `24h` |
-| `charts.loki.aws` | `object` |  | `nil` |
 | `charts.loki.azure.account_key` | `string` |  | `nil` |
 | `charts.loki.azure.account_name` | `string` |  | `nil` |
 | `charts.loki.azure.container_name` | `string` |  | `nil` |
-| `charts.loki.azure` | `object` | Missing from docs but available with this schema. | `nil` |
-| `charts.loki.bigtable` | `object` |  | `nil` |
-| `charts.loki.cassandra` | `object` |  | `nil` |
-| `charts.loki.gcs` | `object` |  | `nil` |
-| `charts.loki.swift` | `object` |  | `nil` |
-| `charts.loki.local` | `object` |  | `nil` |
 | `charts.loki.storageType` | `string` |  | `nil` |
 | `charts.loki.v11StartDate` | `string` | Set this to a date just after deployment in case of an upgrade. (Otomi started at v9 with filesystem.) | `nil` |
-| `charts.nginx-ingress._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.nginx-ingress.autoscaling.enabled` | `boolean` |  | `true` |
 | `charts.nginx-ingress.autoscaling.maxReplicas` | `integer` |  | `10` |
 | `charts.nginx-ingress.autoscaling.minReplicas` | `integer` |  | `2` |
@@ -356,7 +330,6 @@ helm show values otomi-repo/otomi
 | `charts.nginx-ingress.modsecurity.block` | `boolean` | Makes nginx block requests that are marked as violating the modsec rules. | `true` |
 | `charts.nginx-ingress.modsecurity.enabled` | `boolean` |  | `nil` |
 | `charts.nginx-ingress.modsecurity.owasp` | `boolean` | Turns on the default OWASP rule set for modsec. See | `true` |
-| `charts.nginx-ingress.modsecurity` | `object` | Enables MOD Security functionality. | `nil` |
 | `charts.nginx-ingress.resources.limits.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
 | `charts.nginx-ingress.resources.limits.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
 | `charts.nginx-ingress.resources.requests.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
@@ -372,11 +345,8 @@ helm show values otomi-repo/otomi
 | `charts.nginx-ingress.private.resources.requests.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
 | `charts.nginx-ingress.private.resources.requests.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
 | `charts.nginx-ingress.private.service.annotations.patternProperties.^((([a-zA-Z0-9]\|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]\|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9]){1,253}\/)?([a-z0-9A-Z]+[a-z0-9A-Z-_.]+[a-z0-9A-Z]){1,63}$` | `string` |  | `nil` |
-| `charts.nginx-ingress.private` | `object` | Private loadbalancer configuration. | `nil` |
 | `charts.nginx-ingress.service.annotations.patternProperties.^((([a-zA-Z0-9]\|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]\|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9]){1,253}\/)?([a-z0-9A-Z]+[a-z0-9A-Z-_.]+[a-z0-9A-Z]){1,63}$` | `string` |  | `nil` |
-| `charts.oauth2-proxy._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.oauth2-proxy.config.cookieSecret` | `string` | Cookie secret must be 128 bit base64 encoded string. | `nil` |
-| `charts.oauth2-proxy-redis._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.oauth2-proxy-redis.architecture` | `string` |  | `standalone` |
 | `charts.oauth2-proxy-redis.password` | `string` |  | `nil` |
 | `charts.oauth2-proxy-redis.resources.master.limits.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
@@ -394,8 +364,6 @@ helm show values otomi-repo/otomi
 | `charts.oauth2-proxy-redis.sizes.master` | `string` | Disk size. Valid units are E\|P\|T\|G\|Ti\|Gi. | `nil` |
 | `charts.oauth2-proxy-redis.sizes.sentinel` | `string` | Disk size. Valid units are E\|P\|T\|G\|Ti\|Gi. | `nil` |
 | `charts.oauth2-proxy-redis.sizes.slave` | `string` | Disk size. Valid units are E\|P\|T\|G\|Ti\|Gi. | `nil` |
-| `charts.oauth2-proxy-redis` | `object` |  | `nil` |
-| `charts.otomi-api._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.otomi-api.git.branch` | `string` |  | `nil` |
 | `charts.otomi-api.git.email` | `string` |  | `nil` |
 | `charts.otomi-api.git.localPath` | `string` |  | `nil` |
@@ -414,18 +382,14 @@ helm show values otomi-repo/otomi
 | `charts.otomi-api.resources.tools.requests.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
 | `charts.otomi-api.tools.image.pullPolicy` | `string` |  | `IfNotPresent` |
 | `charts.otomi-api.tools.image.tag` | `string` |  | `nil` |
-| `charts.otomi-console._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.otomi-console.image.pullPolicy` | `string` |  | `IfNotPresent` |
 | `charts.otomi-console.image.tag` | `string` |  | `nil` |
-| `charts.otomi-console` | `object` |  | `nil` |
-| `charts.prometheus-operator._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.prometheus-operator.grafana.adminPassword` | `string` |  | `nil` |
 | `charts.prometheus-operator.prometheus.storageSize` | `string` |  | `nil` |
 | `charts.prometheus-operator.resources.grafana.limits.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
 | `charts.prometheus-operator.resources.grafana.limits.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
 | `charts.prometheus-operator.resources.grafana.requests.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
 | `charts.prometheus-operator.resources.grafana.requests.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
-| `charts.redis-shared._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.redis-shared.architecture` | `string` |  | `standalone` |
 | `charts.redis-shared.password` | `string` |  | `nil` |
 | `charts.redis-shared.resources.master.limits.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
@@ -443,9 +407,7 @@ helm show values otomi-repo/otomi
 | `charts.redis-shared.sizes.master` | `string` | Disk size. Valid units are E\|P\|T\|G\|Ti\|Gi. | `nil` |
 | `charts.redis-shared.sizes.sentinel` | `string` | Disk size. Valid units are E\|P\|T\|G\|Ti\|Gi. | `nil` |
 | `charts.redis-shared.sizes.slave` | `string` | Disk size. Valid units are E\|P\|T\|G\|Ti\|Gi. | `nil` |
-| `charts.redis-shared` | `object` |  | `nil` |
 | `charts.redis-shared.enabled` | `boolean` |  | `nil` |
-| `charts.sitespeed._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.sitespeed.enabled` | `boolean` |  | `nil` |
 | `charts.sitespeed.pvc.graphite` | `string` |  | `nil` |
 | `charts.sitespeed.pvc.results` | `string` |  | `nil` |
@@ -465,7 +427,6 @@ helm show values otomi-repo/otomi
 | `charts.vault.seal.azurekeyvault.tenant_id` | `string` |  | `nil` |
 | `charts.vault.seal.azurekeyvault.client_id` | `string` |  | `nil` |
 | `charts.vault.seal.azurekeyvault.client_secret` | `string` |  | `nil` |
-| `charts.weave-scope._rawValues` | `object` | May define value overrides for a chart. WARNING: these values currently have no schema and can't be validated as such, and may break deployment. You are on your own here. | `nil` |
 | `charts.weave-scope.enabled` | `boolean` |  | `nil` |
 | `cluster.apiName` | `string` | Only used for API/UI to show in app. | `nil` |
 | `cluster.apiServer` | `string` | Used by kubectl for local deployment to target cluster. | `nil` |
@@ -478,7 +439,6 @@ helm show values otomi-repo/otomi
 | `cluster.vpcID` | `string` | AWS only. If provided will override autodiscovery from metadata. | `nil` |
 | `customer.name` | `string` |  | `nil` |
 | `dns.zones.[]` | `string` |  | `nil` |
-| `dns.zones` | `array` | Extra dns zones that the cluster can administer (see dns). Team services can use this to publish their URLs on. | `nil` |
 | `dns.provider.aws.region` | `string` |  | `nil` |
 | `dns.provider.azure.cloud` | `string` | Azure Cloud | `nil` |
 | `dns.provider.azure.resourceGroup` | `string` | Azure resource group | `nil` |
@@ -497,7 +457,6 @@ helm show values otomi-repo/otomi
 | `home.msteams.highPrio` | `string` | The low prio web hook. | `nil` |
 | `home.msteams.lowPrio` | `string` | The high prio web hook. | `nil` |
 | `home.receivers.[]` | `string` |  | `nil` |
-| `home.receivers` | `array` | Notification receivers. | `nil` |
 | `home.repeatInterval` | `string` | How long to wait before sending a notification again if it has already been sent successfully for an alert. (Usually ~3h or more). | `3h` |
 | `home.slack.channel` | `string` | The Slack channel for non-critical notifications. | `dev-mon-otomi` |
 | `home.slack.channelCrit` | `string` | The Slack channel for critical notifications. | `dev-mon-otomi` |
@@ -505,7 +464,6 @@ helm show values otomi-repo/otomi
 | `k8s.namespaces.[].disableIstioInjection` | `boolean` |  | `nil` |
 | `k8s.namespaces.[].disablePolicyChecks` | `boolean` |  | `nil` |
 | `k8s.namespaces.[].name` | `string` |  | `nil` |
-| `k8s.namespaces` | `array` |  | `nil` |
 | `kms.sops.provider` | `string` |  | `nil` |
 | `kms.sops.aws.keys` | `string` | Comma separated list of one or two ARNs to keys as defined in AWS KMS. One if used for both enc+dec. Two if one for enc, other for dec. | `nil` |
 | `kms.sops.aws.region` | `string` |  | `nil` |
@@ -533,7 +491,6 @@ helm show values otomi-repo/otomi
 | `oidc.tokenUrl` | `string` |  | `nil` |
 | `oidc.usernameClaimMapper` | `string` | Claim name used by Keycloak to identify incoming users from identity provider | `${CLAIM.email}` |
 | `oidc.subClaimMapper` | `string` | Select OIDC claim to be passed by Keycloak as a unique user identifier. Best to not change this from the default. | `sub` |
-| `otomi.additionalClusters` | `array` |  | `nil` |
 | `otomi.additionalClusters.[].apiName` | `string` | Only used for API/UI to show in app. | `nil` |
 | `otomi.additionalClusters.[].apiServer` | `string` | Used by kubectl for local deployment to target cluster. | `nil` |
 | `otomi.additionalClusters.[].domainSuffix` | `string` | Domain suffix for the cluster. Also added to list of dns zones in the Otomi Console. | `nil` |
@@ -555,43 +512,26 @@ helm show values otomi-repo/otomi
 | `otomi.mode` | `string` | The otomi-core edition. Either community edition (ce) or enterprise edition (ee). | `ee` |
 | `otomi.pullSecret` | `string` | The pullsecret to deploy the Otomi API and Console. Requires an Otomi license. | `nil` |
 | `otomi.version` | `string` | Best pin this to a valid release version found in the repo. | `latest` |
-| `policies` | `object` | List of policy objects used by Open Policy Agent tools (Conftest, Gatekeeper) to run policy based validation against both in-cluster Kubernetes contexts and plain Yaml resources  | `nil` |
-| `policies.banned-image-tags.tags` | `array` |  | `nil` |
 | `policies.banned-image-tags.tags.[]` | `string` |  | `nil` |
 | `policies.banned-image-tags.enabled` | `boolean` |  | `nil` |
 | `policies.container-limits.cpu` | `string` | Amount of cores, or slice of cpu in millis. | `nil` |
 | `policies.container-limits.memory` | `string` | Amount of memory. Valid units are E\|P\|T\|G\|M\|K\|Ei\|Pi\|Ti\|Gi\|Mi\|Ki. | `nil` |
 | `policies.container-limits.enabled` | `boolean` |  | `nil` |
-| `policies.psp-allowed-repos.repos` | `array` |  | `nil` |
 | `policies.psp-allowed-repos.repos.[]` | `string` |  | `nil` |
 | `policies.psp-allowed-repos.enabled` | `boolean` |  | `nil` |
-| `policies.psp-host-filesystem.allowedHostPaths` | `array` |  | `nil` |
-| `policies.psp-host-filesystem.allowedHostPaths.[]` | `object` |  | `nil` |
 | `policies.psp-host-filesystem.allowedHostPaths.[].pathPrefix` | `string` |  | `nil` |
 | `policies.psp-host-filesystem.allowedHostPaths.[].readOnly` | `boolean` |  | `nil` |
 | `policies.psp-host-filesystem.enabled` | `boolean` |  | `nil` |
-| `policies.psp-allowed-users.runAsUser` | `object` |  | `nil` |
 | `policies.psp-allowed-users.runAsUser.rule` | `string` |  | `nil` |
-| `policies.psp-allowed-users.runAsUser.ranges` | `array` |  | `nil` |
-| `policies.psp-allowed-users.runAsUser.ranges.[]` | `object` |  | `nil` |
 | `policies.psp-allowed-users.runAsUser.ranges.[].min` | `integer` |  | `nil` |
 | `policies.psp-allowed-users.runAsUser.ranges.[].max` | `integer` |  | `nil` |
-| `policies.psp-allowed-users.runAsGroup` | `object` |  | `nil` |
 | `policies.psp-allowed-users.runAsGroup.rule` | `string` |  | `nil` |
-| `policies.psp-allowed-users.runAsGroup.ranges` | `array` |  | `nil` |
-| `policies.psp-allowed-users.runAsGroup.ranges.[]` | `object` |  | `nil` |
 | `policies.psp-allowed-users.runAsGroup.ranges.[].min` | `integer` |  | `nil` |
 | `policies.psp-allowed-users.runAsGroup.ranges.[].max` | `integer` |  | `nil` |
-| `policies.psp-allowed-users.supplementalGroups` | `object` |  | `nil` |
 | `policies.psp-allowed-users.supplementalGroups.rule` | `string` |  | `nil` |
-| `policies.psp-allowed-users.supplementalGroups.ranges` | `array` |  | `nil` |
-| `policies.psp-allowed-users.supplementalGroups.ranges.[]` | `object` |  | `nil` |
 | `policies.psp-allowed-users.supplementalGroups.ranges.[].min` | `integer` |  | `nil` |
 | `policies.psp-allowed-users.supplementalGroups.ranges.[].max` | `integer` |  | `nil` |
-| `policies.psp-allowed-users.fsGroup` | `object` |  | `nil` |
 | `policies.psp-allowed-users.fsGroup.rule` | `string` |  | `nil` |
-| `policies.psp-allowed-users.fsGroup.ranges` | `array` |  | `nil` |
-| `policies.psp-allowed-users.fsGroup.ranges.[]` | `object` |  | `nil` |
 | `policies.psp-allowed-users.fsGroup.ranges.[].min` | `integer` |  | `nil` |
 | `policies.psp-allowed-users.fsGroup.ranges.[].max` | `integer` |  | `nil` |
 | `policies.psp-allowed-users.enabled` | `boolean` |  | `nil` |
@@ -599,23 +539,16 @@ helm show values otomi-repo/otomi
 | `policies.psp-host-networking-ports.enabled` | `boolean` |  | `nil` |
 | `policies.psp-privileged.enabled` | `boolean` |  | `nil` |
 | `policies.psp-capabilities.enabled` | `boolean` |  | `nil` |
-| `policies.psp-capabilities.allowedCapabilities` | `array` |  | `nil` |
 | `policies.psp-capabilities.allowedCapabilities.[]` | `string` |  | `nil` |
-| `policies.psp-capabilities.requiredDropCapabilities` | `array` |  | `nil` |
 | `policies.psp-capabilities.requiredDropCapabilities.[]` | `string` |  | `nil` |
 | `policies.psp-forbidden-sysctls.enabled` | `boolean` |  | `nil` |
-| `policies.psp-forbidden-sysctls.forbiddenSysctls` | `array` |  | `nil` |
 | `policies.psp-forbidden-sysctls.forbiddenSysctls.[]` | `string` |  | `nil` |
 | `policies.psp-apparmor.enabled` | `boolean` |  | `nil` |
-| `policies.psp-apparmor.allowedProfiles` | `array` |  | `nil` |
 | `policies.psp-apparmor.allowedProfiles.[]` | `string` |  | `nil` |
 | `policies.psp-seccomp.enabled` | `boolean` |  | `nil` |
-| `policies.psp-seccomp.allowedProfiles` | `array` |  | `nil` |
 | `policies.psp-seccomp.allowedProfiles.[]` | `string` |  | `nil` |
 | `policies.psp-selinux.enabled` | `boolean` |  | `nil` |
 | `policies.psp-selinux.seLinuxContext` | `string` |  | `nil` |
-| `policies.psp-selinux.allowedSELinuxOptions` | `array` |  | `nil` |
-| `policies.psp-selinux.allowedSELinuxOptions.[]` | `object` |  | `nil` |
 | `policies.psp-selinux.allowedSELinuxOptions.[].level` | `string` |  | `nil` |
 | `policies.psp-selinux.allowedSELinuxOptions.[].role` | `string` |  | `nil` |
 | `policies.psp-selinux.allowedSELinuxOptions.[].type` | `string` |  | `nil` |
@@ -633,7 +566,6 @@ helm show values otomi-repo/otomi
 | `services.[].ksvc.podSecurityContext.runAsNonRoot` | `boolean` |  | `true` |
 | `services.[].ksvc.podSecurityContext.runAsUser` | `integer` |  | `1001` |
 | `services.[].ksvc.podSecurityContext.runAsGroup` | `integer` |  | `1001` |
-| `services.[].ksvc` | `object` |  | `nil` |
 | `services.[].ksvc.image.pullPolicy` | `string` |  | `IfNotPresent` |
 | `services.[].ksvc.image.repository` | `string` | A container image repository. | `nil` |
 | `services.[].ksvc.image.tag` | `string` |  | `latest` |
@@ -647,15 +579,9 @@ helm show values otomi-repo/otomi
 | `services.[].ksvc.env.patternProperties.[a-zA-Z_]{1,}[a-zA-Z0-9_]*` | `string` |  | `nil` |
 | `services.[].ksvc.files.patternProperties.^[/].*` | `string` |  | `nil` |
 | `services.[].ksvc.secrets.[]` | `string` |  | `nil` |
-| `services.[].ksvc.secrets` | `array` | List of secret names that will have their props injected as env vars into the container. | `nil` |
 | `services.[].ksvc.secretMounts.patternProperties.^[/].*$` | `string` |  | `nil` |
-| `services.[].ksvc.secretMounts` | `object` | Dictionary of absolute folder path > secret name. Will mount the contents of the secret in the container at the specified folder path. | `nil` |
-| `services.[].ksvc.command` | `array` |  | `nil` |
 | `services.[].ksvc.command.[]` | `string` |  | `nil` |
-| `services.[].ksvc.args` | `array` |  | `nil` |
 | `services.[].ksvc.args.[]` | `string` |  | `nil` |
-| `services.[].ksvc` | `object` |  | `nil` |
-| `services.[].ksvc` | `object` |  | `nil` |
 | `services.[].ksvc.autoCD.semver` | `string` | Use this filter if your images tags follow semantic versioning rules (MAJOR.MINOR.PATCH). E.g.: PATCH only: "~1.1", MINOR and PATCH only "~1", ALL "*". | `nil` |
 | `services.[].ksvc.autoCD.tagMatcher` | `string` |  | `semver` |
 | `services.[].ksvc.autoCD.glob` | `string` | Use this filter if you want to make simple non-standard patterns. E.g.: "master-v1.*.*". | `nil` |
@@ -669,12 +595,10 @@ helm show values otomi-repo/otomi
 | `services.[].ownHost` | `boolean` | When true the service will get it's own domain by prefixing the app name to the team domain. Mostly set to true. This will probably be removed soon. | `true` |
 | `services.[].path` | `string` | Used by otomi-console to render a path for the app. Only used by core services. | `nil` |
 | `services.[].paths.[]` | `string` | Path mapping to only route certain paths to the service. This allows micro services to operate on the same domain and port. When left empty all paths will go to this service.  | `nil` |
-| `services.[].paths` | `array` |  | `nil` |
 | `services.[].port` | `number` | Points to the backing k8s service (only used when 'svc' is set). | `nil` |
 | `services.[].svc` | `string` | When given a backing k8s service is expected to be deployed with this name, which will be exposed through this team service. | `nil` |
 | `services.[].tlsPass` | `boolean` | Will pass the request to the backing service without TLS termination. | `nil` |
 | `services.[].type` | `string` | Will determine the ingress routing. | `public` |
-| `services` | `array` |  | `nil` |
 | `smtp.auth_identity` | `string` |  | `nil` |
 | `smtp.auth_password` | `string` |  | `nil` |
 | `smtp.auth_secret` | `string` |  | `nil` |
