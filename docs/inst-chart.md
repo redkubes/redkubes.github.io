@@ -59,7 +59,6 @@ helm show values otomi-repo/otomi
 
 |Parameter|Description|Default|
 |-|-|-|
-| `alerts` |  |  |
 | `cluster.name` |  |  |
 | `cluster.provider` |  |  |
 | `customer` |  |  |
